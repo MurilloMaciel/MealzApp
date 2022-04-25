@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Mealz</string>
+    <string name="change_state_meal_image">Change state of meal profile picture</string>
 </resources>
