@@ -4,15 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavGraph
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.maciel.murillo.mealz.ui.details.MealDetailsScreen
-import com.maciel.murillo.mealz.ui.details.MealDetailsViewModel
 import com.maciel.murillo.mealz.ui.meals.MealsCategoriesScreen
 import com.maciel.murillo.mealz.ui.theme.MealzTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,12 +45,12 @@ private fun MyApp() {
             arguments = listOf(
                 navArgument(name = "category_id") {
                     type = NavType.StringType
-                    nullable = false
+                    nullable = true
                 }
             )
-        ) {
-            val viewModel: MealDetailsViewModel = viewModel()
-            MealDetailsScreen()
+        ) { navBackStackEntry ->
+            val categoryId = navBackStackEntry.arguments?.getString("category_id")
+            MealDetailsScreen(categoryId)
         }
     }
 }

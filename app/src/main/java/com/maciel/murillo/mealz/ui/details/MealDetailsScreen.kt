@@ -10,14 +10,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.maciel.murillo.mealz.R
 import com.maciel.murillo.mealz.model.response.MealResponse
 import com.maciel.murillo.mealz.ui.widgets.NetworkImage
 
 @Composable
-fun MealDetailsScreen(
-    meal: MealResponse
-) {
+fun MealDetailsScreen(categoryId: String?) {
+    val viewModel: MealDetailsViewModel = viewModel()
+    viewModel.onInitScreen(categoryId)
+//    val meal = viewModel.meal
+//    Body()
+}
+
+@Composable
+private fun Body(meal: MealResponse) {
     Column() {
         Row() {
             Card() {
