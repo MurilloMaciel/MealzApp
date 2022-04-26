@@ -1,8 +1,10 @@
 package com.maciel.murillo.mealz.di
 
-import com.maciel.murillo.mealz.model.MealsRepository
-import com.maciel.murillo.mealz.model.MealsRepositoryImpl
-import com.maciel.murillo.mealz.model.api.MealsApi
+import com.maciel.murillo.mealz.data.mapper.MealResponseToModelMapper
+import com.maciel.murillo.mealz.data.mapper.MealResponseToModelMapperImpl
+import com.maciel.murillo.mealz.domain.repository.MealsRepository
+import com.maciel.murillo.mealz.data.repository.MealsRepositoryImpl
+import com.maciel.murillo.mealz.data.remote.MealsApi
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -14,6 +16,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module
 @InstallIn(ViewModelComponent::class)
 interface AppModule {
+
+    @Binds
+    fun bindMealResponseToModelMapper(mapper: MealResponseToModelMapperImpl): MealResponseToModelMapper
 
     @Binds
     fun bindRepository(repository: MealsRepositoryImpl): MealsRepository
