@@ -4,12 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.maciel.murillo.mealz.presentation.details.MealDetailsScreen
+import com.maciel.murillo.mealz.presentation.details.MealDetailsViewModel
 import com.maciel.murillo.mealz.presentation.meals.MealsCategoriesScreen
 import com.maciel.murillo.mealz.presentation.theme.MealzTheme
 import dagger.hilt.android.AndroidEntryPoint
