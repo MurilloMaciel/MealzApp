@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.maciel.murillo.mealz.data.model.MealResponse
+import com.maciel.murillo.mealz.data.model.CategoryResponse
 import com.maciel.murillo.mealz.presentation.theme.MealzTheme
 import com.maciel.murillo.mealz.presentation.widgets.NetworkImage
 
@@ -69,7 +69,7 @@ fun SuccessBody(
     ) {
         items(categoriesState.data.categories) { meal ->
             Category(
-                meal = meal,
+                category = meal,
                 navigationCallback = navigationCallback,
             )
         }
@@ -78,7 +78,7 @@ fun SuccessBody(
 
 @Composable
 fun Category(
-    meal: MealResponse,
+    category: CategoryResponse,
     navigationCallback: (String) -> Unit
 ) {
     var isExpanded by remember { mutableStateOf(false) }
@@ -88,13 +88,13 @@ fun Category(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 16.dp)
-            .clickable { navigationCallback(meal.id) }
+            .clickable { navigationCallback(category.id) }
     ) {
         Row(
             modifier = Modifier.animateContentSize()
         ) {
             NetworkImage(
-                imageUrl = meal.imageUrl,
+                imageUrl = category.imageUrl,
                 modifier = Modifier.align(Alignment.CenterVertically)
             )
             Column(
@@ -104,12 +104,12 @@ fun Category(
                     .align(Alignment.CenterVertically)
             ) {
                 Text(
-                    text = meal.name,
+                    text = category.name,
                     style = MaterialTheme.typography.h6
                 )
                 CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
                     Text(
-                        text = meal.description,
+                        text = category.description,
                         style = MaterialTheme.typography.subtitle2,
                         textAlign = TextAlign.Start,
                         overflow = TextOverflow.Ellipsis,

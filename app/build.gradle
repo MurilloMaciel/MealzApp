@@ -66,12 +66,25 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1'
 
+    //retrofit
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    //hilt
     implementation 'com.google.dagger:hilt-android:2.41'
     kapt 'com.google.dagger:hilt-compiler:2.41'
+
+    //compose
     implementation "io.coil-kt:coil-compose:2.0.0-rc03"
     implementation "androidx.navigation:navigation-compose:2.4.2"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.11.0"
+
+    //room
+    implementation "androidx.room:room-runtime:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-ktx:2.4.2"
 }

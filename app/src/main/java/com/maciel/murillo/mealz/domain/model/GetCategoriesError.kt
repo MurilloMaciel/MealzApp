@@ -2,16 +2,16 @@ package com.maciel.murillo.mealz.domain.model
 
 import com.maciel.murillo.mealz.utils.ResultError
 
-sealed class GetMealCategoriesError {
+sealed class GetCategoriesError {
 
-    object Generic: GetMealCategoriesError()
+    object Generic: GetCategoriesError()
 
     data class Network(
         val code: Int = -1,
         val message: String? = null,
         val title: String? = null,
         val isConnectionError: Boolean = false,
-    ) : GetMealCategoriesError() {
+    ) : GetCategoriesError() {
         constructor(error: ResultError.NetworkError) : this(
             code = error.code,
             message = error.message,

@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.maciel.murillo.mealz.R
-import com.maciel.murillo.mealz.data.model.MealResponse
+import com.maciel.murillo.mealz.data.model.CategoryResponse
 import com.maciel.murillo.mealz.presentation.widgets.NetworkImage
 
 @Composable
@@ -24,17 +24,17 @@ fun MealDetailsScreen(categoryId: String?) {
 }
 
 @Composable
-private fun Body(meal: MealResponse) {
+private fun Body(category: CategoryResponse) {
     Column() {
         Row() {
             Card() {
                 NetworkImage(
-                    imageUrl = meal.imageUrl,
+                    imageUrl = category.imageUrl,
                     modifier = Modifier.size(200.dp)
                 )
             }
             Text(
-                text = meal.name,
+                text = category.name,
             )
         }
         Button(onClick = { /*TODO*/ }) {
