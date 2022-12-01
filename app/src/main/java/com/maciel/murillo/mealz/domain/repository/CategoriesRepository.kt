@@ -5,6 +5,6 @@ import com.maciel.murillo.mealz.domain.model.GetCategoriesError
 import com.maciel.murillo.mealz.utils.Result
 
 interface CategoriesRepository {
-    suspend fun getMeals(): Result<List<Category>, GetCategoriesError>
+    suspend fun getCategories(): Result<List<Category>, GetCategoriesError>
     suspend fun getMealById(id: String): Category
 }

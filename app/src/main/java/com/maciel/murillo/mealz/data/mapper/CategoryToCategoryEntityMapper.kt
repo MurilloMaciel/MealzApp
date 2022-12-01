@@ -6,7 +6,7 @@ import com.maciel.murillo.mealz.utils.Mapper
 import javax.inject.Inject
 
 class CategoryToCategoryEntityMapper @Inject constructor() : Mapper<Category, CategoryEntity> {
-    override fun invoke(from: Category): CategoryEntity {
+    override fun mapFrom(from: Category): CategoryEntity {
         return CategoryEntity(
             id = from.id,
             name = from.name,

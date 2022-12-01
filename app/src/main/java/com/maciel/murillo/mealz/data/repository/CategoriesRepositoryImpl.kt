@@ -16,7 +16,7 @@ class CategoriesRepositoryImpl @Inject constructor(
     private val categoriesLocalDataSource: CategoriesLocalDataSource,
 ) : CategoriesRepository {
 
-    override suspend fun getMeals(): Result<List<Category>, GetCategoriesError> {
+    override suspend fun getCategories(): Result<List<Category>, GetCategoriesError> {
         val cachedCategories = categoriesLocalDataSource.getAll()
 
         if (cachedCategories.isNotEmpty()) {

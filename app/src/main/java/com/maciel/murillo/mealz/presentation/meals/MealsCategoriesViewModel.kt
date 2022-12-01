@@ -2,7 +2,7 @@ package com.maciel.murillo.mealz.presentation.meals
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.maciel.murillo.mealz.domain.repository.CategoriesRepository
+import com.maciel.murillo.mealz.domain.usecase.GetCategoriesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MealsCategoriesViewModel @Inject constructor(
-    private val repository: CategoriesRepository
+    private val getGategoriesUseCase: GetCategoriesUseCase
 ) : ViewModel() {
 
     private val _categoriesState = MutableStateFlow<MealsCategoriesState>(
@@ -23,7 +23,7 @@ class MealsCategoriesViewModel @Inject constructor(
 
     fun getMeals() {
         viewModelScope.launch(Dispatchers.IO) {
-            val mealsCategories = repository.getMeals()
+            val mealsCategories = getGategoriesUseCase()
 //            _categoriesState.value = MealsCategoriesState.Success(mealsCategories)
         }
     }

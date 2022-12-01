@@ -1,6 +1,7 @@
 package com.maciel.murillo.mealz.utils
 
 sealed class ResultError(open val message: String?) {
+
     class NetworkError(
         override val message: String? = null,
         val title: String? = null,
@@ -10,7 +11,6 @@ sealed class ResultError(open val message: String?) {
     ) : ResultError(message)
 
     class UnavailableNetworkConnectionError : ResultError("Connection unavailable")
-    class UnauthorizedError : ResultError("User not authorized")
+
     data class UnknownError(val msg: String? = null) : ResultError(msg ?: "Unknown error")
-    class InvalidFieldsError(val fieldIds: List<String>) : ResultError("Invalid fields ($fieldIds)")
 }

@@ -17,7 +17,7 @@ private const val DATABASE_NAME = "MEALZ_DB"
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun userDao(): CategoryDao
+    abstract fun categoryDao(): CategoryDao
 
     companion object {
 

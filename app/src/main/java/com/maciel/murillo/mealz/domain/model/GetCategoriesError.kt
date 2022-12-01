@@ -4,7 +4,7 @@ import com.maciel.murillo.mealz.utils.ResultError
 
 sealed class GetCategoriesError {
 
-    object Generic: GetCategoriesError()
+    object Generic : GetCategoriesError()
 
     data class Network(
         val code: Int = -1,

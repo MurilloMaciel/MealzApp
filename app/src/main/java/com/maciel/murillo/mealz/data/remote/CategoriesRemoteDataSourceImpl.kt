@@ -19,7 +19,7 @@ class CategoriesRemoteDataSourceImpl @Inject constructor(
         return safeApiCall(dispatcherProvider.io()) {
             categoriesApi.getMealCategories()
         }.mapSuccess { response ->
-            response.categories.map { mealResponseToModelMapper(it) }
+            response.categories.map { mealResponseToModelMapper.mapFrom(it) }
         }.mapError { error ->
             GetCategoriesError.Network(error)
         }

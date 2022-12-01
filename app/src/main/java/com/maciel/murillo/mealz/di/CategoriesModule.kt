@@ -7,6 +7,8 @@ import com.maciel.murillo.mealz.domain.repository.CategoriesRepository
 import com.maciel.murillo.mealz.data.repository.CategoriesRepositoryImpl
 import com.maciel.murillo.mealz.data.remote.CategoriesApi
 import com.maciel.murillo.mealz.data.remote.CategoriesRemoteDataSourceImpl
+import com.maciel.murillo.mealz.domain.usecase.GetCategoriesUseCase
+import com.maciel.murillo.mealz.domain.usecase.GetCategoriesUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -27,6 +29,9 @@ interface CategoriesModule {
 
     @Binds
     fun bindCategoriesLocalDataSource(dataSource: CategoriesLocalDataSourceImpl): CategoriesLocalDataSource
+
+    @Binds
+    fun bindGetCategoriesUseCase(useCase: GetCategoriesUseCaseImpl): GetCategoriesUseCase
 
     companion object {
 

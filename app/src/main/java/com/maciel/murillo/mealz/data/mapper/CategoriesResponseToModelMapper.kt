@@ -5,9 +5,8 @@ import com.maciel.murillo.mealz.domain.model.Category
 import com.maciel.murillo.mealz.utils.Mapper
 import javax.inject.Inject
 
-class CategoriesResponseToModelMapper @Inject constructor() :
-    Mapper<CategoryResponse, Category> {
-    override fun invoke(from: CategoryResponse): Category {
+class CategoriesResponseToModelMapper @Inject constructor() : Mapper<CategoryResponse, Category> {
+    override fun mapFrom(from: CategoryResponse): Category {
         return Category(
             id = from.id,
             name = from.name,
